@@ -14,13 +14,19 @@ import { useGetTravelink } from '@/hooks/firestore'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { format } from 'date-fns'
-import { IconQr, IconSave, IconShare } from '@/components/Icons'
-import { ButtonIconRound, ButtonViewChange } from '@/components/Buttons'
+import { IconQr, IconShare } from '@/components/Icons'
+import {
+  ButtonIconRound,
+  ButtonViewChange,
+  SaveButton
+} from '@/components/Buttons'
 import { CardLink } from '@/components/Cards'
+import { useCheckBookmarked } from '@/hooks/firestore'
 
 const LinkList = () => {
   const router = useRouter()
   const { travelink } = useGetTravelink()
+  const { isChecked } = useCheckBookmarked()
 
   return (
     <>
@@ -123,10 +129,7 @@ const LinkList = () => {
               </Text>
             )}
             <Flex w={'70%'} margin={'0.9rem auto'}>
-              <Box>
-                <IconSave w={'2.5rem'} h={'2.5rem'} margin={'0 auto'} />
-                <Text>保存</Text>
-              </Box>
+              <SaveButton isChecked={isChecked} data={travelink} />
               <Spacer />
               <Box>
                 <IconQr w={'2.5rem'} h={'2.5rem'} margin={'0 auto'} />

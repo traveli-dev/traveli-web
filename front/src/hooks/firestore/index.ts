@@ -6,3 +6,8 @@ export { useUpdateTravelink } from '@/hooks/firestore/travelink/useUpdateTraveli
 
 //
 export { useGetOwnerProfile } from '@/hooks/firestore/profile/useGetOwnerProfile'
+
+// bookmark
+export { useUpdateBookmark } from '@/hooks/firestore/bookmark/useUpdateBookmark'
+export { useGetBookmark } from '@/hooks/firestore/bookmark/useGetBookmark'
+export { useCheckBookmarked } from '@/hooks/firestore/bookmark/useCheckBookmarked'
